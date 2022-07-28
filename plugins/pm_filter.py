@@ -677,9 +677,11 @@ async def auto_filter(client, msg, spoll=False):
     resp = requests.get(f'https://api.shareus.in/shortLink?token={API}&format=json&link=https://telegram.dog/{temp.U_NAME}?start=pre_{file_id}').json() 
     if resp['status'] == 'success': 
         url = resp['shortlink'] 
-        btn.append( [InlineKeyboardButton(text=f"{filename}", url=url)] ) 
+        btn.append(
+            [InlineKeyboardButton(text=f"{filename}", url=url)]
+        ) 
 #       btn.append(
-#                  [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
+#               [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
 #                   )
                 ),
             ]
