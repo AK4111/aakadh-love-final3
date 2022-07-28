@@ -674,16 +674,13 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-    else:
-        btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"{file.file_name}",
-                    url=await get_shortlink(f"https://api.shareus.in/shortLink?token={apishortner}&format=json&link=https://telegram.dog/{temp.U_NAME}?start=pre_{file.file_id}").json()
-                ),
-                InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}",
-                    callback_data=f'{pre}_#{file.file_id}',
+    resp = requests.get(f'https://api.shareus.in/shortLink?token={API}&format=json&link=https://telegram.dog/{temp.U_NAME}?start=pre_{file_id}').json() 
+    if resp['status'] == 'success': 
+        url = resp['shortlink'] 
+        btn.append( [InlineKeyboardButton(text=f"{filename}", url=url)] ) 
+#       btn.append(
+#                  [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
+#                   )
                 ),
             ]
             for file in files
