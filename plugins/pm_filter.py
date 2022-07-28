@@ -679,7 +679,7 @@ async def auto_filter(client, msg, spoll=False):
             [
                 InlineKeyboardButton(
                     text=f"{file.file_name}",
-                    url=await get_shortlink(f"https://api.shareus.in/shortLink?token={API}&format=json&link=https://telegram.dog/{temp.U_NAME}?start=pre_{file.file_id}").json()
+                    url=await get_shortlink(f"https://api.shareus.in/shortLink?token={apishortner}&format=json&link=https://telegram.dog/{temp.U_NAME}?start=pre_{file.file_id}").json()
                 ),
                 InlineKeyboardButton(
                     text=f"{get_size(file.file_size)}",
