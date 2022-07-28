@@ -682,9 +682,7 @@ async def auto_filter(client, msg, spoll=False):
         ) 
 #       btn.append(
 #               [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{temp.U_NAME}?start=pre_{file_id}")]
-#                   )
-               
-            ]
+#                   )     
             for file in files
         ]
 
